@@ -11,9 +11,10 @@ locals {
 }
 
 module "label" {
-  source     = "git::https://github.com/scalyr/terraform-null-label.git?ref=0.16.0-scalyr2"
+  source     = "git::https://github.com/scalyr/terraform-null-label.git?ref=scp"
   namespace  = var.namespace
   stage      = var.stage
+  environment= var.environment
   name       = var.name
   delimiter  = var.delimiter
   attributes = compact(concat(var.attributes, ["workers"]))
@@ -170,7 +171,7 @@ data "aws_iam_instance_profile" "default" {
 }
 
 module "autoscale_group" {
-  source = "git::https://github.com/scalyr/terraform-aws-ec2-autoscale-group.git?ref=0.4.0-scalyr2"
+  source = "git::https://github.com/scalyr/terraform-aws-ec2-autoscale-group.git?ref=scp"
 
   enabled    = var.enabled
   namespace  = var.namespace
