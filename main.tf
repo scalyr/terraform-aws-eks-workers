@@ -14,7 +14,6 @@ module "label" {
   source     = "git::https://github.com/scalyr/terraform-null-label.git?ref=scp"
   namespace  = var.namespace
   stage      = var.stage
-  environment= var.environment
   name       = var.name
   delimiter  = var.delimiter
   attributes = compact(concat(var.attributes, ["workers"]))
